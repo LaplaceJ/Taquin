@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Score</title>
+</head>
+<body>
+<table id="tableau">
+
+
+    <thead><!-- en-tête -->
+
+    <tr><!-- première ligne -->
+
+        <th> rang </th>
+        <th> nom </th>
+        <th> score </th>
+
+    </tr>
+
+    </thead>
+
+    <tbody id="zoneInsert">
+    </tbody>
+
+    <tfoot>
+    </tfoot>
+
+    <script type="text/javascript">
+        var nomTable = "TaquinQuatre";
+        xmlhttp=new XMLHttpRequest();
+        xmlhttp.onreadystatechange=function(){
+            if (xmlhttp.readyState==4 && xmlhttp.status==200){
+                //gerer le tableau et ouvrir la page Score
+                var container = document.getElementById('zoneInsert');
+                var tableau = xmlhttp.responseText.split(',');
+                var iterateur = 1 ;
+                for (var i = 1 ; i < 7 ; i+=2){
+                    var tr = document.createElement('tr');
+                    var th1 = document.createElement('th');
+                    var th2 = document.createElement('th');
+                    var th3 = document.createElement('th');
+                    th1.innerHTML =  iterateur ;
+                    th2.innerHTML = tableau[i] ;
+                    th3.innerHTML = tableau[i+1] ;
+
+                    tr.appendChild( th1 );
+                    tr.appendChild( th2 );
+                    tr.appendChild( th3 );
+                    container.appendChild( tr );
+                    iterateur++
+                }
+            }
+
+        }
+        xmlhttp.open("GET","requeteSelect.php?table="+nomTable,true);
+        xmlhttp.send();
+    </script>
+
+
+</table>
+</body>
+</html>

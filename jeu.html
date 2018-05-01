@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="function.js"></script>
+    <script type="text/javascript" src="functionJeu.js"></script>
+    <script type="text/javascript" src="event.js"></script>
+    <script type="text/javascript">
+        var ingame = false ;
+        var count = 0;
+        var tailleDuJeu = 3;
+        var nomTable = "TaquinTrois";
+        var scoreFinal = 5.5;
+        var nomJoueur = "toto";
+        //a set si besoins
+        var srcImageDeBase = "imageStock/test2.jpg" ;
+        var timerRandom = null ;
+        var timerTempsRandom = null ;
+        var timerLancementDuJeu = null ;
+    </script>
+    <link rel="stylesheet" type="text/css" href="MonCss.css">
+</head>
+<body>
+<divMenu id="menu">
+    <ul id="main-nav">
+        <li><a id="3X3" onclick="actionChangement3();"> 3X3 </a>
+        </li>
+        <li><a id="4X4" onclick="actionChangement4();">  4X4 </a>
+        </li>
+        <li><a id="5X5" onclick="actionChangement5();">  5X5 </a>
+        </li>
+    </ul>
+</divMenu>
+
+<br>
+<br>
+<h1 id="titre">TAQUIN 3X3</h1>
+<br>
+<br>
+<div id="menuJeu">
+    <input id="uploadImage" type="file" name="myPhoto" onchange="PreviewImage();" />
+    <button onclick="debutDuJeu()" > lancerLeJeu </button>
+    <button id="score" onclick="ouvrirScore3()" > score </button>
+</div>
+
+<div id="timer">
+    <label id="minutes">00</label>:<label id="seconds">00</label>.<label id="centiemeSeconds">00</label>
+</div>
+
+<div id="zoneDeJeu" >
+    <img id="Image"  src="imageStock/test2.jpg" >
+</div>
+
+
+
+<script type="text/javascript">
+    var minutesLabel = document.getElementById("minutes");
+    var secondsLabel = document.getElementById("seconds");
+    var centiemeSeconds = document.getElementById("centiemeSeconds");
+</script>
+
+
+</form>
+
+</body>
+</html>
